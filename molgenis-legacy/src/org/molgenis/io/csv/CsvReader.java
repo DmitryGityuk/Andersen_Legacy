@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,7 +30,7 @@ import org.molgenis.util.tuple.ValueTuple;
  */
 public class CsvReader implements TupleReader
 {
-	private static final Charset CHARSET_UTF8 = Charset.forName("UTF-8");
+	private static final Charset CHARSET_UTF8 = StandardCharsets.UTF_8;
 
 	public static final char DEFAULT_SEPARATOR = ',';
 
@@ -188,7 +189,7 @@ public class CsvReader implements TupleReader
 	@Override
 	public void addCellProcessor(CellProcessor cellProcessor)
 	{
-		if (cellProcessors == null) cellProcessors = new ArrayList<CellProcessor>();
+		if (cellProcessors == null) cellProcessors = new ArrayList<>();
 		cellProcessors.add(cellProcessor);
 	}
 
