@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 public interface TableReader extends Iterable<TupleReader>, Closeable
 {
-	public TupleReader getTupleReader(String tableName) throws IOException;
+	TupleReader getTupleReader(String tableName) throws IOException;
 
-	public Iterable<String> getTableNames() throws IOException;
+	Iterable<String> getTableNames() throws IOException;
 }
