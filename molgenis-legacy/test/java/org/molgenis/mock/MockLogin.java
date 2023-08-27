@@ -15,7 +15,7 @@ import org.molgenis.util.HandleRequestDelegationException;
  * Mock implementation of the Login interface for use in unit tests
  * 
  * @author erwin
- * 
+ *
  */
 public class MockLogin implements Login
 {
@@ -120,7 +120,7 @@ public class MockLogin implements Login
 	}
 
 	@Override
-	public QueryRule getRowlevelSecurityFilters(Class<? extends Entity> klazz)
+	public QueryRule getRowLevelSecurityFilters(Class<? extends Entity> klazz)
 	{
 		// TODO Auto-generated method stub
 		return null;
