@@ -112,7 +112,7 @@ public class View extends DBSchema implements Record
 
 	// @Override
 	@Override
-	public Vector<String> getParents()
+	public List<String> getParents()
 	{
 		return new Vector<String>();
 	}
