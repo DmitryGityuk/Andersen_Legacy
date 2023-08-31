@@ -98,17 +98,31 @@ public class Unique implements Serializable
 	 * @return The fields that make up the unique.
 	 * @throws MolgenisModelException
 	 */
-	public Vector<Field> getFields() throws MolgenisModelException
-	{
-		Vector<Field> result = new Vector<Field>();
-		for (String fieldName : fields)
-		{
-			Field f = entity.getAllField(fieldName);
-			if (f == null) throw new MolgenisModelException("Unknown unique field: " + this.getEntity().getName() + "."
-					+ fieldName);
-			result.add(f);
+	public Vector<Field> getFields() {
+		try {
+			Vector<Field> result = new Vector<>();
+
+			fields.forEach(fieldName -> {
+				Field f = entity.getAllField(fieldName);
+				if (f == null) {
+					try {
+						throw new MolgenisModelException("Unknown unique field: " +
+								this.getEntity().getName() + "." + fieldName);
+					} catch (MolgenisModelException e) {
+						throw new RuntimeException(e);
+					}
+				}
+				result.addElement(f);
+			});
+
+			return result;
+		} catch (Exception e) {
+			try {
+				throw new MolgenisModelException(e.getMessage());
+			} catch (MolgenisModelException ex) {
+				throw new RuntimeException(ex);
+			}
 		}
-		return result;
 	}
 
 	/**
