@@ -12,15 +12,13 @@ package org.molgenis.model;
 
 import org.apache.log4j.Logger;
 
-public class MolgenisModelException extends Exception
-{
-	private static final long serialVersionUID = -4778664169051832691L;
+public class MolgenisModelException extends Exception {
+    private static final long serialVersionUID = -4778664169051832691L;
 
-	private static transient final Logger logger = Logger.getLogger("DSLParser");
+    private static final Logger logger = Logger.getLogger("DSLParser");
 
-	public MolgenisModelException(String error)
-	{
-		super(error);
-		logger.error(error);
-	}
+    public MolgenisModelException(String error) {
+        super(error);
+        logger.error(error);
+    }
 }
